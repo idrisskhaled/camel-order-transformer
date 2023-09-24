@@ -42,6 +42,9 @@ public class Order {
     private OrderItem[] items;
 
     public Order() {
+        quantity = "0,000000";
+        quantityReceive = "0,000000";
+        weight = "0,000000";
     }
 
     public int getId() {

@@ -59,7 +59,9 @@ public class OrderProcessor implements Processor {
         Line[] lines = contenu.getLines();
 
         // If lines property is empty return 'order'
-        if (lines.length == 0) return order;
+        if (lines == null || lines.length == 0) {
+            return order;
+        }
 
         // Else, declare an array of 'OrderItem' that will contain the transformed 'lines'
         OrderItem[] orderItems = new OrderItem[lines.length];
@@ -77,7 +79,9 @@ public class OrderProcessor implements Processor {
             quantite += lines[i].getQuantite();
             weight += lines[i].getWeight();
             orderItem.setQuanitityOrder(String.format("%.6f", lines[i].getQuantite()));
-            orderItem.setBranchsId(supplierOrder.getContenu().getSiteReception().getSiteId());
+            if(siteReception != null) {
+                orderItem.setBranchsId(siteReception.getSiteId());
+            }
             orderItems[i] = orderItem;
         }
         // Format and set 'quantite', 'quanitereceive' and 'weight' properties
