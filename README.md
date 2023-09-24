@@ -1,18 +1,23 @@
 Camel Order Router Project
 =========================
 
-=== How to build
 
-To build this project use
+### Steps to run the project : 
+
+#### 1. Install maven dependencies
 
     mvn install
 
-=== How to run
+#### 2. Build project
 
-You can run this example using
+
+    mvn clean package
+
+#### 3. Run project 
 
     mvn camel:run
 
-=== More information
+
+#### For more information : 
 
 You can find more information about Apache Camel at the website: http://camel.apache.org/

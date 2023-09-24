@@ -10,24 +10,25 @@ public class OrderRoute extends RouteBuilder {
     public void configure() {
         onException(Exception.class)
                 .handled(true) // Mark the exception as handled.
-                .log("An exception occurred: ${exception.message}")
-                .to("log:errorRoute"); // Redirect the exception to an error route.
+                .log("An exception occurred: ${exception.message}");
 
         from("file:src/data?noop=true")
                 .routeId("orderRoute") // Set a custom route id
-                .unmarshal().json(JsonLibrary.Jackson, SupplierOrder.class)// Unmarshal JSON to Java object
                 .choice()
-                    .when(simple("${body} == null"))
-                        .stop() // Stop the route if body is empty
+                    .when(body().isNull())
+                        .log("No data was found, the body is empty.") // Log if the file is empty
+                        .to("log:output")
                     .otherwise() // Continue otherwise
+                        .unmarshal().json(JsonLibrary.Jackson, SupplierOrder.class) // Unmarshal JSON to Java object
                         .process(new OrderProcessor())
-                        .marshal().json(JsonLibrary.Jackson)// Marshal the commande data to JSON
-                        .to("file:target/messages?fileName=commande.json") // Output commande data to "commande.json"
+                        .marshal().json(JsonLibrary.Jackson) // Marshal the commande data to JSON
+                        .to("file:target/messages?fileName=commande-${header.CamelFileName}") // Output commande data to "commande.json"
                         .split().jsonpath("$..items")
                         .marshal().json(JsonLibrary.Jackson) // Convert each item to JSON
                         .transform().simple("{\"items\": ${body}}")
-                        .to("file:target/messages?fileName=items.json") // Output each item to "items.json"
-                .stop(); // Stop the entire route when finished
+                        .to("file:target/messages?fileName=items-${header.CamelFileName}") // Output items to "items.json"
+                .endChoice()
+                .stop();
 
     }
 }

@@ -1,0 +1,20 @@
+{
+  "id": 101796,
+  "creation": "2022-10-25 13:39:00",
+  "exported": 0,
+  "contenu": {
+    "id": 1504678,
+    "fournisseur": {
+      "code": "989",
+      "nom": "LABORATOIRE",
+      "telephone": ""
+    },
+    "site_reception": {
+      "site_id": 58,
+      "telephone": ""
+    },
+    "numero_commande": "00240296",
+    "numero_livraison": "RG005119",
+    "lignes": []
+  }
+}

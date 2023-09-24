@@ -11,11 +11,14 @@ public class MainApp {
     /**
      * A main() so we can easily run these routing rules in our IDE
      */
-    public static void main(String... args) throws Exception {
-
-        Main main = new Main();
-        main.configure().addRoutesBuilder(new OrderRoute());
-        main.run(args);
+    public static void main(String... args) {
+        try {
+            Main main = new Main();
+            main.configure().addRoutesBuilder(new OrderRoute());
+            main.run(args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

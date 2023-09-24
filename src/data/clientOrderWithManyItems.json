@@ -37,6 +37,36 @@
         "numero_lot": "00079663",
         "dlc": "2023-04-20",
         "categorie": "A partager"
+      },
+      {
+        "id": "14600564/54981",
+        "code_produit": "57652",
+        "libelle_fr": "Panettone au Marron Glacé Signature Noël 2022",
+        "quantite": 0,
+        "unite": "pièce",
+        "lieu": 1,
+        "nb_jour_dlc_apres_decongelation": 42,
+        "nb_jour_dlv": 0,
+        "nb_jour_blocage": 21,
+        "fragile": false,
+        "numero_lot": "00079663",
+        "dlc": "2023-04-20",
+        "categorie": "A partager"
+      },
+      {
+        "id": "1419884/54981",
+        "code_produit": "57652",
+        "libelle_fr": "Panettone au Marron Glacé Signature Noël 2022",
+        "quantite": 150,
+        "unite": "pièce",
+        "lieu": 1,
+        "nb_jour_dlc_apres_decongelation": 42,
+        "nb_jour_dlv": 0,
+        "nb_jour_blocage": 31,
+        "fragile": false,
+        "numero_lot": "00079663",
+        "dlc": "2023-04-20",
+        "categorie": "A partager"
       }
     ]
   }
